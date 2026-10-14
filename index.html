@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บริษัท ดราก้อน เจด (2023) จำกัด | Dragon Jade (2023) Co., Ltd.</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --sea-light: #4A90E2;
+            --sea-main: #0077B6;
+            --sea-deep: #023E8A;
+            --sea-dark: #03045E;
+            --accent: #00B4D8;
+            --accent-light: #90E0EF;
+            --white: #ffffff;
+            --light-bg: #F8FAFC;
+            --card-bg: #ffffff;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 2px 8px rgba(0, 119, 182, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 119, 182, 0.12);
+            --shadow-lg: 0 16px 32px rgba(0, 119, 182, 0.18);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            padding-bottom: 70px; /* เว้นพื้นที่ให้ Mobile Bottom Bar */
+        }
+
+        /* ===== HEADER & HERO ===== */
+        header {
+            background: linear-gradient(135deg, var(--sea-dark), var(--sea-deep), var(--sea-main));
+            color: var(--white);
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 20%, rgba(255,255,255,0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header .subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--accent-light);
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        header .tagline {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background-color: var(--sea-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .nav-logo {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.08);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* ===== LAYOUT & SECTIONS ===== */
+        section {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            color: var(--sea-deep);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sea-main), var(--accent));
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ===== CARDS & BOXES ===== */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Welcome Box */
+        .welcome-card {
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff, #F0F7FF);
+            border: 1px solid rgba(0, 119, 182, 0.15);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .welcome-card p {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Activities Grid */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .activity-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #E2E8F0;
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .activity-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .activity-card h4 {
+            color: var(--sea-deep);
+            padding: 1.2rem;
+            font-size: 1.25rem;
+            text-align: center;
+            font-weight: 600;
+            background: var(--white);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--sea-main);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-top-color: var(--accent);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 119, 182, 0.08);
+            color: var(--sea-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 1.2rem;
+        }
+
+        .service-card h3 {
+            color: var(--sea-deep);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Info List */
+        .info-card {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        .info-row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            align-items: center;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--sea-deep);
+            width: 200px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-value {
+            color: var(--text-dark);
+            flex-grow: 1;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--sea-main);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item strong {
+            color: var(--sea-deep);
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            color: var(--sea-main);
+        }
+
+        .business-hours {
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.08), rgba(0, 180, 216, 0.08));
+            border: 1px solid rgba(0, 119, 182, 0.2);
+            padding: 1rem 1.8rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--sea-deep);
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--sea-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.85;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            font-weight: 300;
+        }
+
+        footer .copyright {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* ===== MOBILE BOTTOM BAR (ติดต่อด่วนบนมือถือ) ===== */
+        .mobile-bottom-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            z-index: 999;
+            padding: 0.6rem 1rem;
+        }
+
+        .mobile-bottom-bar .bar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .btn-call, .btn-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-call {
+            background: var(--sea-main);
+            color: var(--white);
+        }
+
+        .btn-email {
+            background: var(--light-bg);
+            color: var(--sea-deep);
+            border: 1px solid var(--border-color);
+        }
+
+        /* ===== RESPONSIVE MEDIA QUERIES ===== */
+        @media (max-width: 992px) {
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.3rem;
+            }
+            .info-label {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 80px; /* เพิ่มพื้นที่สำหรับ Mobile Bar */
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--sea-dark);
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+            }
+
+            .nav-links a {
+                padding: 1rem 1.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            section {
+                padding: 2.5rem 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr; /* บนมือถือให้แสดงทีละรูปใหญ่เต็มจอ */
+                gap: 1.2rem;
+            }
+
+            .mobile-bottom-bar {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER / HERO ===== -->
+<header>
+    <div class="header-container">
+        <span class="brand-badge"><i class="fa-solid fa-water"></i> ทัวร์ทะเล & กิจกรรมทางน้ำ</span>
+        <h1>บริษัท ดราก้อน เจด (2023) จำกัด</h1>
+        <div class="subtitle">DRAGON JADE (2023) CO., LTD.</div>
+        <p class="tagline">บริการทัวร์ทะเลคุณภาพ • กิจกรรมทางน้ำครบครัน • ปลอดภัยและประทับใจทุกการเดินทาง</p>
+    </div>
+</header>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+    <div class="nav-container">
+        <a href="#home" class="nav-logo">
+            <i class="fa-solid fa-dragon" style="color: var(--accent-light);"></i> Dragon Jade
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home"><i class="fa-solid fa-house"></i> หน้าแรก</a></li>
+            <li><a href="#services"><i class="fa-solid fa-sailboat"></i> กิจกรรม & บริการ</a></li>
+            <li><a href="#info"><i class="fa-solid fa-building"></i> ข้อมูลบริษัท</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-phone"></i> ติดต่อเรา</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ===== HOME / ABOUT ===== -->
+<section id="home">
+    <div class="card welcome-card">
+        <div class="section-header" style="margin-bottom: 1.5rem;">
+            <h2 class="section-title">ยินดีต้อนรับสู่ ดราก้อน เจด ทัวร์ทะเล 🌊</h2>
+        </div>
+        <p>
+            เราคือผู้ให้บริการทัวร์ทะเลและกิจกรรมทางน้ำครบวงจรที่มีมาตรฐาน เน้นความปลอดภัย และดูแลโดยทีมงานมืออาชีพ 
+            พร้อมพาคุณไปสัมผัสความสวยงามของท้องทะเล ปะการังธรรมชาติ และกิจกรรมทางน้ำสุดมันส์ 
+            ในพื้นที่จังหวัดชลบุรีและพื้นที่ใกล้เคียง
+        </p>
+    </div>
+</section>
+
+<!-- ===== SERVICES & ACTIVITIES ===== -->
+<section id="services">
+    <div class="section-header">
+        <h2 class="section-title">🚤 กิจกรรมทางทะเลไฮไลต์</h2>
+        <p class="section-desc">สัมผัสความสนุกสนานตื่นเต้นและสร้างความทรงจำดีๆ กับกิจกรรมหลากหลายรูปแบบ</p>
+    </div>
+
+    <!-- รูปภาพกิจกรรม -->
+    <div class="activities-grid">
+        <div class="activity-card">
+            <div class="img-wrapper">
+                <img src="images/P9192680.jpeg" alt="ดำน้ำดูปะการัง" loading="lazy">
+            </div>
+            <h4>🤿 ดำน้ำดูปะการัง</h4>
+        </div>
+        <div class="activity-card">
+            <div class="img-wrapper">
+                <img src="images/ddd.jpg" alt="พาราเซลลิ่ง" loading="lazy">
+            </div>
+            <h4>🪂 พาราเซลลิ่ง</h4>
+        </div>
+        <div class="activity-card">
+            <div class="img-wrapper">
+                <img src="images/IMG_8855.jpg" alt="เจ็ตสกี & บานาน่าโบ๊ต" loading="lazy">
+            </div>
+            <h4>ปร เจ็ตสกี & บานาน่าโบ๊ต</h4>
+        </div>
+    </div>
+
+    <!-- บริการหลัก -->
+    <div class="section-header" style="margin-top: 2rem;">
+        <h3 class="section-title">📋 บริการของเรา</h3>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-island-tropical"></i></div>
+            <h3>นำเที่ยวทะเล</h3>
+            <p>ทัวร์เกาะ ทัวร์ชายหาด แบบวันเดียวจบ (One Day Trip) และแพ็กเกจค้างคืน</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-mask-snorkel"></i></div>
+            <h3>ดำน้ำชมปะการัง</h3>
+            <p>บริการนำดำน้ำตื้น (Snorkeling) และดำน้ำลึก สัมผัสธรรมชาติใต้ท้องทะเล</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-ship"></i></div>
+            <h3>เช่าเรือเหมาลำ</h3>
+            <p>บริการเรือสปีดโบ๊ต และเรือยอร์ชส่วนตัว ตอบโจทย์ทุกกรุ๊ปทัวร์</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fa-solid fa-users"></i></div>
+            <h3>กิจกรรมกลุ่ม / องค์กร</h3>
+            <p>รองรับการจัดทัศนศึกษา สัมมนา ทริป outing และงานเลี้ยงบริษัท</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COMPANY INFO ===== -->
+<section id="info">
+    <div class="section-header">
+        <h2 class="section-title">📄 ข้อมูลบริษัท</h2>
+    </div>
+    
+    <div class="card info-card">
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-building-flag"></i> ชื่อบริษัท:</div>
+            <div class="info-value">บริษัท ดราก้อน เจด (2023) จำกัด</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-language"></i> ชื่อภาษาอังกฤษ:</div>
+            <div class="info-value">DRAGON JADE (2023) CO., LTD.</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-id-card"></i> เลขทะเบียนนิติบุคคล:</div>
+            <div class="info-value">0205557035484</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-briefcase"></i> หมวดธุรกิจ:</div>
+            <div class="info-value">ตัวแทนธุรกิจการเดินทาง, ธุรกิจนำเที่ยว</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> สถานะกิจการ:</div>
+            <div class="info-value">ยังดำเนินกิจการอยู่</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-calendar-check"></i> วันที่จดทะเบียน:</div>
+            <div class="info-value">14 ตุลาคม 2557</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-coins"></i> ทุนจดทะเบียน:</div>
+            <div class="info-value">1,000,000 บาท</div>
+        </div>
+        <div class="info-row">
+            <div class="info-label"><i class="fa-solid fa-location-dot"></i> ที่อยู่จดทะเบียน:</div>
+            <div class="info-value">62/1 หมู่ที่ 1 ตำบลหนองปรือ อำเภอบางละมุง จังหวัดชลบุรี 20150</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+    <div class="section-header">
+        <h2 class="section-title">📞 ติดต่อเรา</h2>
+        <p class="section-desc">สนใจจองทริปหรือสอบถามข้อมูลเพิ่มเติม สามารถติดต่อเราได้ตลอดเวลาทำการ</p>
+    </div>
+    
+    <div class="card contact-card">
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fa-solid fa-phone-volume"></i>
+                <strong>เบอร์โทรศัพท์</strong>
+                <a href="tel:0868168291">086-816-8291</a>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <strong>อีเมล</strong>
+                <a href="mailto:sitthiphonchai3339@gmail.com">sitthiphonchai3339@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <strong>ที่อยู่</strong>
+                <span>ต.หนองปรือ อ.บางละมุง จ.ชลบุรี</span>
+            </div>
+        </div>
+
+        <div class="business-hours">
+            <i class="fa-regular fa-clock"></i>
+            <span>เวลาทำการ: จันทร์ - อาทิตย์ 08:00 - 18:00 น.</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p><strong>🐉 บริษัท ดราก้อน เจด (2023) จำกัด</strong></p>
+    <p>DRAGON JADE (2023) CO., LTD.</p>
+    <p style="font-size: 0.85rem; margin-top: 0.5rem;">62/1 หมู่ที่ 1 ต.หนองปรือ อ.บางละมุง จ.ชลบุรี 20150</p>
+    
+    <div class="copyright">
+        © 2026 สงวนลิขสิทธิ์ | เลขทะเบียนนิติบุคคล: 0205557035484
+    </div>
+</footer>
+
+<!-- ===== MOBILE BOTTOM BAR ===== -->
+<div class="mobile-bottom-bar">
+    <div class="bar-grid">
+        <a href="tel:0868168291" class="btn-call">
+            <i class="fa-solid fa-phone"></i> โทรด่วน
+        </a>
+        <a href="mailto:sitthiphonchai3339@gmail.com" class="btn-email">
+            <i class="fa-solid fa-envelope"></i> ส่งอีเมล
+        </a>
+    </div>
+</div>
+
+<!-- JavaScript สำหรับระบบ Mobile Menu Toggle -->
+<script>
+    const menuToggle = id = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // ปิดเมนูเมื่อคลิกลิงก์
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>
